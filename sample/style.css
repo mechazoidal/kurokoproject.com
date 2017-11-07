@@ -1,0 +1,26 @@
+body {
+  background-color: #e0e0e066;
+}
+#navlist {
+  display: flex;
+  justify-content: center;
+}
+#navlist li {
+  display:inline-flex;
+  align-items:center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 10px
+}
+#name_title {
+  display: flex;
+  justify-content: center;
+}
+#name_title h1{
+  justify-content: center;
+  font-style: normal;
+  font-size: 40px;
+  font-family: 'Open Sans';
+  font-style: italic;
+  margin-bottom: 0px;
+}

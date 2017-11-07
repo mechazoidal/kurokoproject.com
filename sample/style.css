@@ -1,28 +1,36 @@
 body {
-  background-color: #e0e0e066;
+  background-color: #eeeeee;
+  font: normal 18px/25px Palatino, "Palatino Linotype", serif;
+  /* from better mf'ing website */
+  margin:40px auto;
+  max-width:650px;
+  line-height:1.6;
+  font-size:18px;
+  color:#444;
+  padding:0 10px;
 }
-#navlist {
+h1,h2,h3 {
+  line-height:1.2
+}
+.navlist {
   display: flex;
   justify-content: center;
 }
-#navlist ul {
-  padding-left: 0px;
+.navlist ul {
+  padding-left: 0;
 }
-#navlist li {
+.navlist li {
   display:inline-flex;
   align-items:center;
   flex-direction: row;
   flex-wrap: wrap;
 }
-#name_title {
+.name_title {
   display: flex;
   justify-content: center;
 }
-#name_title h1{
+.name_title h1{
   justify-content: center;
-  font-style: normal;
   font-size: 40px;
-  font-family: 'Open Sans';
-  font-style: italic;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }

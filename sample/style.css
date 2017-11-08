@@ -9,62 +9,36 @@ body {
   color:#444;
   padding:0 10px;
 }
-header a{
+a:link {
   text-decoration: none;
   color: #444;
 }
-header a:hover {
+a:visited {
+  color: #444;
+}
+a:hover {
   text-decoration: underline;
   color: #885252;
 }
 h1,h2,h3 {
   line-height:1.2
 }
+header {
+  float: left;
+}
 nav {
   padding-left: 60%;
 }
-nav a {
-  text-decoration: none;
-  color: #444;
-}
-nav a:hover {
-  text-decoration: underline;
-  color: #885252;
-}
-nav a:visited {
-  color: #885252;
-}
-.content dd {
+dd {
   margin-left:2%;
   font-style: italic
 }
-.content a {
-  text-decoration: none;
-  color: inherit;
+dt a {
   font-size:larger;
 }
-.content a:hover {
-  text-decoration: underline;
-  color: #885252;
-}
-.content a:visited & a:hover {
-  color: #444;
-}
-
 footer {
   display: flex;
   justify-content: center;
-}
-footer a {
-  text-decoration: none;
-  color: #444;
-}
-footer a:hover {
-  text-decoration: underline;
-  color: #885252;
-}
-footer a:hover & a:visited {
-  color: #885252;
 }
 footer ul {
   padding-left: 0;
@@ -74,7 +48,4 @@ footer li {
   align-items:center;
   flex-direction: row;
   flex-wrap: wrap;
-}
-header {
-  float: left;
 }

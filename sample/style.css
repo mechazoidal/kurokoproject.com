@@ -11,11 +11,11 @@ body {
 }
 header a{
   text-decoration: none;
-  color: inherit;
+  color: #444;
 }
 header a:hover {
   text-decoration: underline;
-  color: #0000ee;
+  color: #885252;
 }
 h1,h2,h3 {
   line-height:1.2
@@ -25,12 +25,14 @@ nav {
 }
 nav a {
   text-decoration: none;
+  color: #444;
 }
 nav a:hover {
   text-decoration: underline;
+  color: #885252;
 }
 nav a:visited {
-  color: #0000ee;
+  color: #885252;
 }
 .content dd {
   margin-left:2%;
@@ -43,10 +45,10 @@ nav a:visited {
 }
 .content a:hover {
   text-decoration: underline;
-  color: #0000ee;
+  color: #885252;
 }
-.content a:visited {
-  color: #0000ee;
+.content a:visited & a:hover {
+  color: #444;
 }
 
 footer {
@@ -55,12 +57,14 @@ footer {
 }
 footer a {
   text-decoration: none;
+  color: #444;
 }
 footer a:hover {
   text-decoration: underline;
+  color: #885252;
 }
-footer a:visited {
-  color: #0000ee;
+footer a:hover & a:visited {
+  color: #885252;
 }
 footer ul {
   padding-left: 0;

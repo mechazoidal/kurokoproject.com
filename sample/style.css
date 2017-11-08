@@ -36,6 +36,9 @@ dd {
 dt a {
   font-size:larger;
 }
+.content a:link {
+  color: #885252;
+}
 footer {
   display: flex;
   justify-content: center;

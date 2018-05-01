@@ -1,0 +1,30 @@
+.### Since we run the script off the XML file, it starts in
+.### template mode.
+.template 0
+ignorecase = 0
+for section
+  for page
+    xml to section from "$(page.name).xml"
+    delete page
+  endfor
+endfor
+save root
+for section
+  ### section.name = "Scott Francis" ?? dirname = "" ? dirname = "$(section.name:lower)"
+  if section.name = "Scott Francis"
+    dirname = "."
+  else
+    dirname = "$(section.name:lower)"
+    echo "dirname: $(dirname)"
+    dir = directory.create("./$(dirname)") ?
+    if !defined(dir)
+      abort "error: " + error_text
+    ### else
+    ###   abort "error: " + error_text
+    endif
+  endif
+  for page
+    include "template.gsl"
+  endfor
+endfor
+.endtemplate

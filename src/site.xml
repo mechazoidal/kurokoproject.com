@@ -1,0 +1,12 @@
+<?xml version = "1.0" ?>
+<site script="sitegen.gsl">
+  <!--<section name="">-->
+  <section name="Scott Francis">
+    <page name="index"></page>
+    <page name="writing"></page>
+  </section>
+  <section name="Writing">
+    <page name="wheel_stop"></page>
+    <page name="two_sticks"></page>
+  </section>
+</site>

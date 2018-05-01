@@ -1,0 +1,53 @@
+
+.###  This whole script runs in template mode.
+.#
+.template 1
+.echo "Generating $(dirname)/$(page.name) page..."
+.output "$(dirname)/$(page.name).html"
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8"/>
+    <title>$(page.title)</title>
+  </head>
+  <body>
+    <div class="top group">
+      <header>
+        <a href="index.html">Scott Francis</a>
+      </header>
+      <nav>
+        <a href="#" title="soon!">about</a>
+        <span class="sep">/</span>
+        <a href="resume-scott_francis.pdf">resume</a>
+        <span class="sep">/</span>
+        <a href="writing.html">writing</a>
+        <span class="sep">/</span>
+        <a href="#" title="soon!">feed</a>
+      </nav>
+    </div>
+    <div class="content">
+    <!-- Page content -->
+.### .echo "$(content)"
+.for content
+    $(content.string ())
+.endfor
+    <!-- End page content -->
+    </div>
+    <footer>
+      <span><a href="https://github.com/mechazoidal">github</a></span>
+      <span class="sep">/</span>
+      <span><a href="https://bitbucket.org/mechazoidal">bitbucket</a></span>
+      <span class="sep">/</span>
+      <span><a href="https://twitter.com/mechazoidal">twitter</a></span>
+      <span class="sep">/</span>
+      <span><a href="https://www.flickr.com/photos/mechazoidal">flickr</a></span>
+      <span class="sep">/</span>
+      <span><a href="https://pinboard.in/u:mechazoidal">pinboard</a></span>
+    </footer>
+  </body>
+</html>
+
+.endtemplate

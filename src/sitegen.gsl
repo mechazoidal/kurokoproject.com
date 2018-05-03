@@ -4,27 +4,31 @@
 ignorecase = 0
 for section
   for page
+    echo "$(page.name)"
     xml to section from "$(page.name).xml"
+    path = (section.name = "") ?? "." ? "$(section.name:lower)"
     delete page
+    section.path = path
   endfor
 endfor
-save root
+### debug
+### save root
+### Generate HTML
 for section
-  ### section.name = "Scott Francis" ?? dirname = "" ? dirname = "$(section.name:lower)"
-  if section.name = "Scott Francis"
-    dirname = "."
-  else
-    dirname = "$(section.name:lower)"
-    echo "dirname: $(dirname)"
-    dir = directory.create("./$(dirname)") ?
-    if !defined(dir)
-      abort "error: " + error_text
-    ### else
-    ###   abort "error: " + error_text
+  if path
+    dir = directory.create("./$(path)") ?
+    if dir = -1
+      abort "error: couldn't create $(path)"
     endif
   endif
   for page
     include "template.gsl"
+  endfor
+endfor
+### Generate sitemap
+for metadata
+  for page
+    ### include "sitemap.gsl"
   endfor
 endfor
 .endtemplate

@@ -3,8 +3,8 @@
   name="two_sticks" 
   subtitle="Virtual On's control system is not to be trifled with" 
   title="Two Sticks of Fury">
-</page>
 <content>
+    <div class="content writing">
       <article>
         <section id="two-sticks-of-fury">
           <h2>Two Sticks of Fury</h2>
@@ -50,8 +50,8 @@
           <h2>Update 2009</h2>
           <p>I'm flattered that the <a href="http://www.kurokoproject.com/2009/03/two-sticks-of-fury/">previous article</a> has been showing up in a few blogs and forums. Interestingly, it's being used as an insight for newbies into VO:OT's movement schema, and in one case an entertaining dismissal of the non-explanatory bits as &quot;hardcore religious twinstick nonsense&quot; :D I'm still planning on adapting my Saturn sticks, as an opportunity to improve my hardware-hacking skills by building a <a href="http://forums.shoryuken.com/showthread.php?t=131230">Universal PCB adapter</a>. Progress and pics on this to follow as things are developed. As can be seen in the sidebar, I've acquired both an Xbox 360 and a Live account, and have been well pleased by the VO:OT 5.66 port. While using the 360 pad has crippled my quick-step reflexes(for now), it's forced me to use more long-range characters that I haven't made a habit of playing. This in turn has exposed some longstanding bad habits in my play style: repeated side-to-forward Watari dashing and constant rushdown attempts. It helps that there's a lot of good Japanese players hanging around, and willing to school you without trash-talking or ragequitting. So in spite of my noting of VOOT's design dependency on sticks, don't let that stop you from joining in! If you've ever played any Virtual On game and come away pleased, or if you're looking for a grueling-yet-rewarding learning curve, this is an excellent time to start. The VO community is breathing again and it's always a good day to SELECT YOUR VIRTUAROID and GET READY.</p>
         </section>
-        <section id="coda-2017">
-          <h2><a href="/sample/writing/two_sticks_coda_2017.html">Update 2017 - 7 years after</a></h2>
+        <section id="coda-2018">
+          <h2><a href="/writing/two_sticks_coda.html">Update 2018 - 8 years after</a></h2>
         </section>
         <section id="footnotes">
           <h3>Footnotes</h3>
@@ -63,4 +63,6 @@
           </p>
         </section>
       </article>
+    </div>
 </content>
+</page>

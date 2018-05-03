@@ -1,12 +1,19 @@
 <?xml version = "1.0" ?>
 <site script="sitegen.gsl">
   <!--<section name="">-->
-  <section name="Scott Francis">
+  <section name="">
     <page name="index"></page>
     <page name="writing"></page>
   </section>
   <section name="Writing">
-    <page name="wheel_stop"></page>
+    <page name="strange-loop-2010"></page>
     <page name="two_sticks"></page>
+    <page name="wheel_stop"></page>
+    <page name="wax-eloquently-wistfully"></page>
+    <page name="two_sticks_coda"></page>
   </section>
+  <metadata>
+    <page name="sitemap"></page>
+    <page name="rss"></page>
+  </metadata>
 </site>

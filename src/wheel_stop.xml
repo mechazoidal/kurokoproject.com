@@ -1,7 +1,7 @@
 <?xml version = "1.0" ?>
 <page name="wheel_stop" 
   subtitle="Retirement of old legends, and the arrival of future memories" 
-  title="For the last time, wheel stop"></page>
+  title="For the last time, wheel stop">
 <content>
       <article>
         <section id="for-the-last-time-wheel-stop">
@@ -57,3 +57,4 @@
         </section>
       </article>
 </content>
+</page>

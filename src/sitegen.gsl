@@ -2,11 +2,22 @@
 .### template mode.
 .template 0
 ignorecase = 0
+### output = "./output"
+outdir = directory.create("./output") ?
+if outdir = -1
+  abort "error: couldn't create $(output)"
+endif
 for section
   for page
     echo "$(page.name)"
     xml to section from "$(page.name).xml"
-    path = (section.name = "") ?? "." ? "$(section.name:lower)"
+    ### if section.name = ""
+    ###   section.path = "output"
+    ### else
+    ###   section.path = 'output/' + "$(section.name:lower)"
+    ### endif
+    ### path = (section.name = "") ?? "output/." ? "$('output/' + section.name:lower)"
+    path = (section.name = "") ?? "output" ? "output/$(section.name:lower)"
     delete page
     section.path = path
   endfor
@@ -15,8 +26,10 @@ endfor
 ### save root
 ### Generate HTML
 for section
-  if path
-    dir = directory.create("./$(path)") ?
+  ### Copy static files to output path
+  file.copy("style.css","output/style.css")
+  if defined(path)
+    dir = directory.create("$(path)") ?
     if dir = -1
       abort "error: couldn't create $(path)"
     endif

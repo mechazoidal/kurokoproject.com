@@ -12,8 +12,8 @@
     <page name="wax-eloquently-wistfully"></page>
     <page name="two_sticks_coda"></page>
   </section>
-  <metadata>
-    <page name="sitemap"></page>
-    <page name="rss"></page>
-  </metadata>
+  <!--<metadata>-->
+    <!--<page name="sitemap"></page>-->
+    <!--<page name="rss"></page>-->
+  <!--</metadata>-->
 </site>

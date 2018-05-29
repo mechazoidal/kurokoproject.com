@@ -2,7 +2,6 @@
 .### template mode.
 .template 0
 ignorecase = 0
-### output = "./output"
 outdir = directory.create("./output") ?
 if outdir = -1
   abort "error: couldn't create $(output)"
@@ -38,10 +37,5 @@ for section
     include "template.gsl"
   endfor
 endfor
-### Generate sitemap
-for metadata
-  for page
-    ### include "sitemap.gsl"
-  endfor
-endfor
+
 .endtemplate

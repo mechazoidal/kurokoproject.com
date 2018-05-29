@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<metadata script="metagen.gsl">
+  <section name="">
+    <page name="sitemap"></page>
+  </section>
+  <section name="feeds">
+    <page name="rss"></page>
+  </section>
+</metadata>

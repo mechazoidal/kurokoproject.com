@@ -1,0 +1,19 @@
+
+.###  This whole script runs in template mode.
+.#
+.template 1
+.echo "Generating sitemap.xml..."
+.output "sitemap.xml"
+<?xml version="1.0" encoding=utf-8">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  .for content
+  <url>
+    <loc>http://$(domain)/$(dirname)$(page.name).html</loc>
+    <lastmod>
+    .file.timestamp("$(dirname)$(page.name).html")
+    </lastmod>
+  </url>
+  .endfor
+</urlset>

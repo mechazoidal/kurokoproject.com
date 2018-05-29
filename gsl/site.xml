@@ -1,6 +1,5 @@
 <?xml version = "1.0" ?>
 <site script="sitegen.gsl">
-  <!--<section name="">-->
   <section name="">
     <page name="index"></page>
     <page name="writing"></page>
@@ -12,8 +11,4 @@
     <page name="wax-eloquently-wistfully"></page>
     <page name="two_sticks_coda"></page>
   </section>
-  <!--<metadata>-->
-    <!--<page name="sitemap"></page>-->
-    <!--<page name="rss"></page>-->
-  <!--</metadata>-->
 </site>

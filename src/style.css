@@ -1,0 +1,57 @@
+body {
+  background-color: #eeeeee;
+  font: normal 18px/25px Palatino, "Palatino Linotype", serif;
+  /* from better mf'ing website */
+  margin:40px auto;
+  max-width:650px;
+  line-height:1.6;
+  font-size:18px;
+  color:#444;
+  padding:0 10px;
+}
+a:link {
+  text-decoration: none;
+  color: #444;
+}
+a:visited {
+  color: #444;
+}
+a:hover {
+  text-decoration: underline;
+  color: #885252;
+}
+h1,h2,h3 {
+  line-height:1.2
+}
+header {
+  float: left;
+}
+nav {
+  padding-left: 60%;
+}
+dd {
+  margin-left:2%;
+  font-style: italic
+}
+dt a {
+  font-size:larger;
+}
+.writing a:link {
+  color: #885252;
+}
+.writing a:visited {
+  color: #444;
+}
+footer {
+  display: flex;
+  justify-content: center;
+}
+footer ul {
+  padding-left: 0;
+}
+footer li {
+  display:inline-flex;
+  align-items:center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

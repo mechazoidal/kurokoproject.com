@@ -1,4 +1,3 @@
 #/usr/bin/env bash
 title=${1-"TITLE"}
-# FIXME how to substitute title
-cat ./src/header.html - ./src/footer.html
+cat ./src/header.html - ./src/footer.html | sed "s/%%TITLE%%/$title/"

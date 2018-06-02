@@ -18,7 +18,9 @@ ALL=$STATIC_TARGETS $BUILDDIR/writing.html $WRITE_TARGETS $TARGETS
 all:V:  $ALL
 
 $BUILDDIR%.html: $SRCDIR%.md
-  discount $prereq | page_wrapper.sh > $target
+  page_builder.sh $prereq > $target
+#  discount $prereq | page_wrapper.sh  > $target
+
 
 $BUILDDIR%.css: $SRCDIR%.css
   cp $prereq $target
@@ -26,8 +28,10 @@ $BUILDDIR%.css: $SRCDIR%.css
 $BUILDDIR/writing:
   mkdir -p $BUILDDIR/writing
 
+# FIXME must fire writing.html automatically from md->html rule
+
 $BUILDDIR/writing.html: $BUILDDIR/writing
-  date_sort.sh | cut -d" " -f2 | xargs -I % writing_index_entry.sh % | discount | page_wrapper.sh > $BUILDDIR/writing.html
+  date_sort.sh | cut -d" " -f2 | xargs -I % writing_index_entry.sh % | discount | page_wrapper.sh "Writing" > $BUILDDIR/writing.html
 
 clean:V:
   rm -r $BUILDDIR/*

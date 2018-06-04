@@ -21,8 +21,8 @@ statics=
 for entry in $static
 do
   loc=${entry/$SRC_DIR/$HOSTNAME}
-  lastmod=$(stat -n -f "%Sm" -t "%Y-%m-%d" "$entry")
-  statics=$(printf "<url><changefreq>monthly</changefreq><lastmod>%s</lastmod><loc>%s</loc></url>%s" $lastmod $loc $statics)
+  #lastmod=$(stat -n -f "%Sm" -t "%Y-%m-%d" "$entry")
+  statics=$(printf "<url><changefreq>monthly</changefreq><loc>%s</loc></url>%s" $loc $statics)
 
 done
 

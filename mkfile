@@ -1,6 +1,8 @@
 SRCDIR="src"
 BUILDDIR="output"
 
+HOSTNAME="http://www.kurokoproject.com"
+
 SOURCES=index.md
 TARGETS=${SOURCES:%.md=$BUILDDIR/%.html}
 
@@ -13,17 +15,22 @@ DIR_TARGETS=${DIRS:%=$BUILDDIR/%}
 STATIC_SOURCES=style.css
 STATIC_TARGETS=${STATIC_SOURCES:%=$BUILDDIR/%}
 
-ALL=$STATIC_TARGETS $BUILDDIR/writing.html $WRITE_TARGETS $TARGETS
+META_SOURCES=sitemap.xml
+META_TARGETS=${META_SOURCES:%=$BUILDDIR/%}
+
+ALL=$STATIC_TARGETS $BUILDDIR/writing.html $WRITE_TARGETS $TARGETS $META_TARGETS
 
 all:V:  $ALL
 
 $BUILDDIR%.html: $SRCDIR%.md
   page_builder.sh $prereq > $target
-#  discount $prereq | page_wrapper.sh  > $target
 
 
 $BUILDDIR%.css: $SRCDIR%.css
   cp $prereq $target
+
+$BUILDDIR/sitemap.xml: $BUILDDIR/writing
+  sitemap.sh $BUILDDIR $HOSTNAME > $BUILDDIR/sitemap.xml
 
 $BUILDDIR/writing:
   mkdir -p $BUILDDIR/writing

@@ -31,7 +31,7 @@ cat <<EOF
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
  <title>Kuroko Project</title>
- <description>This is an example of an RSS feed</description>
+ <description>Scott Francis's writings</description>
  <link>${HOSTNAME}/feed.xml</link>
  <atom:link href="${HOSTNAME}/feed.xml" rel="self" type="application/rss+xml" />
  <lastBuildDate>${build_date}</lastBuildDate>

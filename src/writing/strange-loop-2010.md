@@ -1,11 +1,11 @@
 % Document I have been in a Strange Loop
 % Document My first visit to Strange Loop in 2010
-% Document 2010-10-29
+% Document 2010-10-29Z01:00:00
 
 <article>
 <section>
 ## I have been in a Strange Loop
-<time datetime="2018-04-30Z15:11:53">2018-04-30</time>
+<time datetime="2010-10-29Z01:00:00">2010-10-29</time>
 </section>
 
 <section>

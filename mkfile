@@ -3,7 +3,7 @@ BUILDDIR="output"
 
 HOSTNAME="http://www.kurokoproject.com"
 
-SOURCES=index.md
+SOURCES=index.md about.md
 TARGETS=${SOURCES:%.md=$BUILDDIR/%.html}
 
 WRITE_SOURCES=`{find src/writing -name "*.md"}
@@ -12,7 +12,7 @@ WRITE_TARGETS=${WRITE_SOURCES:$SRCDIR%.md=$BUILDDIR%.html}
 DIRS=writing
 DIR_TARGETS=${DIRS:%=$BUILDDIR/%}
 
-STATIC_SOURCES=style.css robots.txt sitemap.xml.gz
+STATIC_SOURCES=style.css robots.txt .htaccess
 STATIC_TARGETS=${STATIC_SOURCES:%=$BUILDDIR/%}
 
 META_SOURCES=sitemap.xml feed.xml
@@ -32,11 +32,15 @@ $BUILDDIR%.css: $SRCDIR%.css
 $BUILDDIR%.txt: $SRCDIR%.txt
   cp $prereq $target
 
-$BUILDDIR/sitemap.xml.gz: $BUILDDIR/sitemap.xml
-  gzip -f -o $BUILDDIR/sitemap.xml.gz $BUILDDIR/sitemap.xml
+$BUILDDIR/.htaccess: $SRCDIR/_htaccess
+  cp $prereq $target
+
+
+# FIXME any way to just keep track of files, instead of directory presence(and rebuilding every time)?
 
 $BUILDDIR/sitemap.xml: $BUILDDIR/writing
   sitemap.sh $BUILDDIR $HOSTNAME > $BUILDDIR/sitemap.xml
+  gzip -f -o $BUILDDIR/sitemap.xml.gz $BUILDDIR/sitemap.xml
 
 $BUILDDIR/feed.xml: $BUILDDIR/writing
   rss.sh src/writing $HOSTNAME > $BUILDDIR/feed.xml

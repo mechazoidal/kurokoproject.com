@@ -1,58 +1,71 @@
-SRCDIR="src"
-BUILDDIR="output"
+SRC="src"
+OUTPUT="output"
 
-HOSTNAME="http://www.kurokoproject.com"
+# HOSTNAME="http://www.kurokoproject.com"
 
-SOURCES=index.md about.md
-TARGETS=${SOURCES:%.md=$BUILDDIR/%.html}
+# FIXME need to stop sblg from inserting 'output' into relative links
 
-WRITE_SOURCES=`{find src/writing -name "*.md"}
-WRITE_TARGETS=${WRITE_SOURCES:$SRCDIR%.md=$BUILDDIR%.html}
+SOURCES=`{find src/writing -name "*.xml"}
+ARTICLES=${SOURCES:$SRC%.xml=$OUTPUT%.html}
 
-DIRS=writing
-DIR_TARGETS=${DIRS:%=$BUILDDIR/%}
+TEMPLATED_HTML=$OUTPUT/index.html $OUTPUT/writing.html $OUTPUT/feed.xml
 
+TEMPLATE_TARGETS=$SRC/blog.xml $SRC/article.xml
 STATIC_SOURCES=style.css robots.txt .htaccess
-STATIC_TARGETS=${STATIC_SOURCES:%=$BUILDDIR/%}
+STATIC_TARGETS=${STATIC_SOURCES:%=$OUTPUT/%}
 
-META_SOURCES=sitemap.xml feed.xml
-META_TARGETS=${META_SOURCES:%=$BUILDDIR/%}
+ALL=$OUTPUT $OUTPUT/writing.html $OUTPUT/writing $TEMPLATED_HTML $ARTICLES $STATIC_TARGETS $TEMPLATE_TARGETS
 
-ALL=$STATIC_TARGETS $BUILDDIR/writing.html $WRITE_TARGETS $TARGETS $META_TARGETS
+# Top-level targets
 
 all:V:  $ALL
 
-$BUILDDIR%.html: $SRCDIR%.md
-  page_builder.sh $prereq > $target
-
-
-$BUILDDIR%.css: $SRCDIR%.css
-  cp $prereq $target
-
-$BUILDDIR%.txt: $SRCDIR%.txt
-  cp $prereq $target
-
-$BUILDDIR/.htaccess: $SRCDIR/_htaccess
-  cp $prereq $target
-
-
-# FIXME any way to just keep track of files, instead of directory presence(and rebuilding every time)?
-
-$BUILDDIR/sitemap.xml: $BUILDDIR/writing
-  sitemap.sh $BUILDDIR $HOSTNAME > $BUILDDIR/sitemap.xml
-  gzip -f -o $BUILDDIR/sitemap.xml.gz $BUILDDIR/sitemap.xml
-
-$BUILDDIR/feed.xml: $BUILDDIR/writing
-  rss.sh src/writing $HOSTNAME > $BUILDDIR/feed.xml
-
-$BUILDDIR/writing:
-  mkdir -p $BUILDDIR/writing
-
-# FIXME must fire writing.html automatically from md->html rule
-
-$BUILDDIR/writing.html: $BUILDDIR/writing
-  date_sort.sh src/writing | cut -d" " -f2 | xargs -I % writing_index_entry.sh % | discount | page_wrapper.sh "Writing" > $BUILDDIR/writing.html
-  #date_sort.sh src/writing | cut -d" " -f2 | xargs writing_index_entry.sh | discount | page_wrapper.sh "Writing" > $BUILDDIR/writing.html
-
 clean:V:
-  rm -r $BUILDDIR/*
+  rm -rf $OUTPUT/*
+  rm -f $SRC/blog.xml
+  rm -f $SRC/article.xml
+
+dryrun:QV:
+  echo SOURCES: $SOURCES
+  echo ARTICLES: $ARTICLES
+  echo TEMPLATE_TARGETS: $TEMPLATE_TARGETS
+  echo OUTPUT: $OUTPUT
+
+# Specific targets and format rules
+
+$OUTPUT:
+  mkdir -p $OUTPUT
+
+$OUTPUT/writing:
+  mkdir -p $OUTPUT/writing
+
+#%.html: %.xml.html
+
+# FIXME can these two rules be combined
+$OUTPUT%.css: $SRC%.css
+  cp $prereq $target
+
+$OUTPUT%.txt: $SRC%.txt
+  cp $prereq $target
+
+$OUTPUT/.htaccess: $SRC/_htaccess
+  cp $prereq $target
+
+$OUTPUT/writing.html: $ARTICLES
+  sblg -t $SRC/blog.xml -o $target $prereq
+
+$OUTPUT/%.html: $SRC/%.xml
+  sblg -c -o $target $prereq
+
+$OUTPUT/feed.xml: $ARTICLES
+  sblg -a -t $SRC/atom.xml -o $target $prereq
+
+# used so that I can modify header/footer separately
+$SRC/article.xml: $SRC/header.html $SRC/art.xml $SRC/footer.html
+  cat $prereq > $target
+
+$SRC/blog.xml: $SRC/header.html $SRC/blg.xml $SRC/footer.html
+  cat $prereq > $target
+
+$OUTPUT/index.html: $SRC/header.html $SRC/index.xml $SRC/footer.html
+  cat $prereq > $target
